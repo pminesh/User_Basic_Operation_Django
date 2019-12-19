@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<html>
+
+<head>
+    {% block head %}
+    <title>Login</title>
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <div class="container">
+        <h1>Login Form</h1>
+        <hr><br>
+        <div class="jumbotron">
+            <form action="/accounts/login/" method="POST">
+                {%  csrf_token %}
+                Enter User Name:<br>
+                <input type="text" name="username" placeholder="User Name"><br><br>
+                Enter Password:<br>
+                <input type="password" name="password" placeholder="Password"><br><br>
+                <input type="submit" value="Login">
+            </form>
+            <a class="nav-item nav-link" href="/RegisterForm/">Create New Account</a><br>
+            <a class="nav-item nav-link" href="/password_reset/">Forgot Password</a><br>
+            <div>
+            </div>
+            {% for message in messages%}
+            <script>
+                alert('{{message}}');
+            </script>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

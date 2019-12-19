@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<html>
+{% load static %}
+
+<head>
+    {% block head %}
+    <title>Home</title>
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block body %}
+    <div class="container">
+        <div>
+            {% for message in messages%}
+            <script>
+                alert('{{message}}');
+            </script>
+            {% endfor %}
+        </div>
+        <br>
+        <img src="{% static 'images/about.jpeg' %}" width="100%" height="auto" alt="My image">
+    </div>
+    {% endblock %}
+</body>
+
+</html>

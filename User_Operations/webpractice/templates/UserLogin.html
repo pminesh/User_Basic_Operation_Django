@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    {% block head %}
+    <title>User Login</title>
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">HOME</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <span style="margin-left: 640px; margin-top: 8px;">Welcome {{user}}</span>
+                    <a class="nav-item nav-link" href="/LogoutForm/">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    {% block body %}
+    <div class="container">
+        <center>
+            <h1>User Profile </h1>
+            <hr>            
+            <img src="{{ user.userprofile.image.url }}" width="150" height="150"
+                style="border-radius: 50% 50% 50% 50%;"><br><br>
+            <b>User First Name:</b>&nbsp;{{user.first_name}}<br><br>
+            <b>User Last Name:</b>&nbsp; {{user.last_name}}<br><br>
+            <b>User Email Id:</b>&nbsp; {{user.email}}<br><br>
+            <b>User Join Date:</b>&nbsp;{{user.date_joined}}<br><br>
+            <b>User URL:</b>&nbsp;{{user.userprofile.url}}<br><br>
+            <b>User Phone:</b>&nbsp;{{user.userprofile.phone}}<br><br>
+            <b>User Description:</b>&nbsp;{{user.userprofile.description}}<br><br>
+            <a class="nav-item nav-link" href="/EditProfile/">Edit Your Profile</a>
+            <a class="nav-item nav-link" href="/ChangePassword/">Change Password</a>
+        </center>
+        <div>
+            {% for message in messages%}
+            <script>
+                alert('{{message}}');
+            </script>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+    <br>
+    <!-- Footer -->
+    <footer class="page-footer font-small green">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="#"> mineshpatel.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</body>
+
+</html>

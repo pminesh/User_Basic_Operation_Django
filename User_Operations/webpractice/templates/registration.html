@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+<html>
+
+<head>
+    {% block head %}
+    <title>Registration</title>
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <div class="container">
+
+        <h1>User Registration Form</h1>
+        <hr><br>
+        <div class="jumbotron">
+            <form action="/RegisterForm/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                Enter First Name:<br>
+                <input type="text" name="first_name" placeholder="First Name"><br><br>
+                Enter Last Name:<br>
+                <input type="text" name="last_name" placeholder="Last Name"><br><br>
+                Enter User Name:<br>
+                <input type="text" name="username" placeholder="User Name"><br><br>
+                Enter User URL:<br>
+                <input type="text" name="userurl" placeholder="User Name"><br><br>
+                Enter User Phone:<br>
+                <input type="text" name="userphone" placeholder="User Name"><br><br>
+                Enter User Description:<br>
+                <input type="text" name="userdes" placeholder="User Name"><br><br>
+                Enter Email Id:<br>
+                <input type="email" name="email" placeholder="Email"><br><br>
+                Select Your Image Profile:<br>
+                <input type="file" name="img_prof"><br><br>
+                Enter Password:<br>
+                <input type="password" name="password1" placeholder="Password"><br><br>
+                Enter Confirm Password:<br>
+                <input type="password" name="password2" placeholder="Confirm Password"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div>
+            {% for message in messages%}
+            <script>
+                alert('{{message}}');
+            </script>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
